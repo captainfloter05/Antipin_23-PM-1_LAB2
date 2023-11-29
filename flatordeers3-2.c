@@ -4,8 +4,6 @@
 #include "flatordeers3.h"
 
 void search(Furniture*arr,int n){
-	FILE*fp=fopen("file.txt","r");
-	if(!fp) return;
 	int flt;
 	printf("1-name,2-material,3-period\n");
 	scanf("%d",&flt);
@@ -19,7 +17,8 @@ switch(flt){
 			if(strcmp(s1,arr[i].name)==0){
 				printf("found -> %s %s %d\n",arr[i].name,arr[i].material,arr[i].per);
 				f1=1;
-				 } else printf("not found\n");
+				 };
+			if(f1==0) printf("not found\n");
 			}
 		break;
 		}
@@ -32,7 +31,8 @@ switch(flt){
                         if(strcmp(s2,arr[i].material)==0){
                                 printf("found -> %s %s %d\n",arr[i].name,arr[i].material,arr[i].per);
                                 f2=1;
-                                } else printf("not found\n");
+                                };
+			if(f2==0) printf("not found\n");
                 	}
                 break;
                 }
@@ -45,12 +45,12 @@ switch(flt){
                         if(s3==arr[i].per){
                                 printf("found -> %s %s %d\n",arr[i].name,arr[i].material,arr[i].per);
                                 f3=1;
-                        	} else printf("not found\n");
+                        	};
+			if(f3==0) printf("not found\n");
                 }
                 break;
                 }
 	default:
 		break;
 	}
-fclose(fp);
 }
